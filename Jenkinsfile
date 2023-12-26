@@ -1,5 +1,6 @@
 pipeline {
     agent any 
+     tools {nodejs "recent node"}
     stages {
         stage('Clonar') { 
             steps {
@@ -13,7 +14,7 @@ pipeline {
         }
         stage('Executar') { 
             steps {
-                sh 'npm run cy:ci' 
+                sh 'npx cypress run' 
             }
         }
     }
